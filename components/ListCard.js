@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 const DescriptionBox = dynamic(() => import('./DescriptionBox'));
-import DetailButton from './DetailButton';
-import HideDetailbutton from './HideDetailbutton';
+const DetailButton = dynamic(() => import('./DetailButton'));
+const HideDetailbutton = dynamic(() => import('./HideDetailbutton'));
 const Statistics = dynamic(() => import('./Statistics'));
 
 const ListCard = ({ data, expand, setExpand }) => {
