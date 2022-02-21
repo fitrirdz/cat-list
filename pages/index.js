@@ -1,18 +1,11 @@
-import axios from 'axios';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import ListCard from '../components/ListCard';
+const ListCard = dynamic(() => import('../components/ListCard'));
 
-export default function Home() {
-  const [cats, setCats] = useState([]);
+const Home = ({ data }) => {
+  const [cats, setCats] = useState(data);
   const [expand, setExpand] = useState();
-
-  useEffect(() => {
-    axios
-      .get('https://api.thecatapi.com/v1/breeds')
-      .then((res) => setCats(res.data))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div className='main'>
@@ -35,4 +28,16 @@ export default function Home() {
       </div>
     </div>
   );
+};
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://api.thecatapi.com/v1/breeds`);
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
 }
+
+export default Home;
