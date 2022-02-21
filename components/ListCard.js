@@ -10,54 +10,56 @@ const ListCard = ({ data, expand, setExpand }) => {
     <div className='h-full w-full shadow-lg mb-2'>
       <div className='grid grid-cols-12'>
         <div
-          className='col-span-4 h-72 bg-black bg-cover bg-center bg-no-repeat'
+          className='col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat'
           style={{ backgroundImage: `url('${data?.image?.url}')` }}
-        />
-        <div className='col-span-8 place-items-center bg-white px-4'>
-          <table className='table-fixed'>
+        >
+          {data?.image?.url == undefined && (
+            <h3 className='w-full h-full grid place-items-center text-gray-200 text-lg'>
+              No Images Available
+            </h3>
+          )}
+        </div>
+        <div className='col-span-8 grid content-center gap-2 bg-white px-4'>
+          <h2 className='text-xl font-bold text-center'>{data?.name}</h2>
+          <table className='table-fixed w-full'>
             <tbody>
               <tr>
-                <td>Name</td>
-                <td>:</td>
-                <td>{data?.name}</td>
-              </tr>
-              <tr>
-                <td>Weight</td>
-                <td>:</td>
+                <td className='w-32'>Weight</td>
+                <td className='w-2'>:</td>
                 <td>{data?.weight?.metric} kg</td>
               </tr>
               <tr>
-                <td>Life Span</td>
-                <td>:</td>
+                <td className='w-32'>Life Span</td>
+                <td className='w-2'>:</td>
                 <td>{data?.life_span} years</td>
               </tr>
               <tr>
-                <td>Temperament</td>
-                <td>:</td>
+                <td className='w-32'>Temperament</td>
+                <td className='w-2'>:</td>
                 <td>{data?.temperament}</td>
               </tr>
               <tr>
-                <td>Origin</td>
-                <td>:</td>
+                <td className='w-32'>Origin</td>
+                <td className='w-2'>:</td>
                 <td>{data?.origin}</td>
               </tr>
               {data?.alt_names?.length > 1 && (
                 <tr>
                   <td>Alternative Name</td>
-                  <td>:</td>
+                  <td className='w-2'>:</td>
                   <td>{data?.alt_names}</td>
                 </tr>
               )}
               <tr>
-                <td>Wikipedia URL</td>
-                <td>:</td>
+                <td className='w-32'>Wikipedia URL</td>
+                <td className='w-2'>:</td>
                 <td>
                   <a href={data?.wikipedia_url}>{data?.name} Cat</a>
                 </td>
               </tr>
             </tbody>
           </table>
-          <div className='col-span-12 grid justify-items-end'>
+          <div className='w-full'>
             {expand != data.id ? (
               <DetailButton data={data.id} setDetail={setExpand} />
             ) : (

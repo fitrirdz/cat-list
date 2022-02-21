@@ -3,7 +3,7 @@ import React from 'react';
 const DetailButton = ({ data, setDetail }) => {
   return (
     <div>
-      <button className='primary-button w-28' onClick={() => setDetail(data)}>
+      <button className='primary-button w-full' onClick={() => setDetail(data)}>
         See Detail
       </button>
     </div>
