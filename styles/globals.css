@@ -35,6 +35,7 @@ a {
 .primary-button:hover {
   background-color: wheat;
   color: #3d2001;
+  font-weight: 700;
 }
 
 .secondary-button {
@@ -48,4 +49,5 @@ a {
 .secondary-button:hover {
   background-color: wheat;
   color: #3d2001;
+  font-weight: 700;
 }
