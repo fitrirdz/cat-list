@@ -36,3 +36,16 @@ a {
   background-color: wheat;
   color: #3d2001;
 }
+
+.secondary-button {
+  background-color: #3d2001;
+  color: white;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 0 8px;
+}
+
+.secondary-button:hover {
+  background-color: wheat;
+  color: #3d2001;
+}

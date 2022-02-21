@@ -1,8 +1,11 @@
+import dynamic from 'next/dynamic';
 import React from 'react';
+const DescriptionBox = dynamic(() => import('./DescriptionBox'));
 import DetailButton from './DetailButton';
-import Statistics from './Statistics';
+import HideDetailbutton from './HideDetailbutton';
+const Statistics = dynamic(() => import('./Statistics'));
 
-const ListCard = ({ data }) => {
+const ListCard = ({ data, expand, setExpand }) => {
   return (
     <div className='h-full w-full shadow-lg mb-2'>
       <div className='grid grid-cols-12'>
@@ -55,15 +58,24 @@ const ListCard = ({ data }) => {
             </tbody>
           </table>
           <div className='col-span-12 grid justify-items-end'>
-            <DetailButton />
+            {expand != data.id ? (
+              <DetailButton data={data.id} setDetail={setExpand} />
+            ) : (
+              <HideDetailbutton setDetail={setExpand} />
+            )}
           </div>
         </div>
       </div>
-      <div className='grid grid-cols-12 bg-white'>
-        <div className='col-span-12'>
-          <Statistics data={data} />
+      {expand == data?.id && (
+        <div className='grid grid-cols-12 bg-white'>
+          <div className='col-span-12'>
+            <DescriptionBox data={data?.description} />
+          </div>
+          <div className='col-span-12'>
+            <Statistics data={data} />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

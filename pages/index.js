@@ -5,6 +5,7 @@ import ListCard from '../components/ListCard';
 
 export default function Home() {
   const [cats, setCats] = useState([]);
+  const [expand, setExpand] = useState();
 
   useEffect(() => {
     axios
@@ -22,7 +23,14 @@ export default function Home() {
       </Head>
       <div className='min-h-screen w-8/12 mx-auto break-words'>
         {cats.map((cat) => {
-          return <ListCard key={cat.id} data={cat} />;
+          return (
+            <ListCard
+              key={cat.id}
+              data={cat}
+              expand={expand}
+              setExpand={setExpand}
+            />
+          );
         })}
       </div>
     </div>

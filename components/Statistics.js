@@ -2,11 +2,11 @@ import React from 'react';
 
 const Statistics = ({ data }) => {
   return (
-    <>
+    <div className='pb-4'>
       <h2 className='font-bold text-xl grid justify-items-center bg-orange-200'>
         Statistics
       </h2>
-      <div className='flex flex-row flex-wrap py-4'>
+      <div className='flex flex-row flex-wrap'>
         <div className='w-1/2 py-1 px-4'>
           <p>
             {data?.lap == 1 ? <span>&#10004;</span> : <span>&#10008;</span>} Lap
@@ -254,7 +254,7 @@ const Statistics = ({ data }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
