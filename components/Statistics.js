@@ -3,7 +3,7 @@ import React from 'react';
 const Statistics = ({ data }) => {
   return (
     <>
-      <h2 className='font-bold text-xl grid justify-items-center'>
+      <h2 className='font-bold text-xl grid justify-items-center bg-orange-200'>
         Statistics
       </h2>
       <div className='flex flex-row flex-wrap py-4'>

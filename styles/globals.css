@@ -18,3 +18,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.main {
+  background-color: #e0b98b;
+  min-height: 100vh;
+}
+
+.primary-button {
+  background-color: #3d2001;
+  color: white;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 8px 0;
+}
+
+.primary-button:hover {
+  background-color: wheat;
+  color: #3d2001;
+}
