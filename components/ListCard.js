@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
+import OtherSources from './OtherSources';
 const DescriptionBox = dynamic(() => import('./DescriptionBox'));
 const DetailButton = dynamic(() => import('./DetailButton'));
 const HideDetailbutton = dynamic(() => import('./HideDetailbutton'));
@@ -81,6 +82,15 @@ const ListCard = ({ data, expand, setExpand }) => {
           <div className='col-span-12'>
             <Statistics data={data} />
           </div>
+          {(data?.cfa_url || data?.vetstreet_url || data?.vcahospitals_url) && (
+            <div className='col-span-12'>
+              <OtherSources
+                cfa={data?.cfa_url}
+                vetstreet={data?.vetstreet_url}
+                vca={data?.vcahospitals_url}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
