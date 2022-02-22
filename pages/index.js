@@ -1,11 +1,38 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { createRef, useEffect, useRef, useState } from 'react';
 const ListCard = dynamic(() => import('../components/ListCard'));
 
 const Home = ({ data }) => {
-  const [cats, setCats] = useState(data);
+  const [cats, setCats] = useState(data.slice(0, 10));
   const [expand, setExpand] = useState();
+  const [loading, setLoading] = useState(false);
+
+  function handleScroll() {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    )
+      return;
+    setLoading(true);
+  }
+
+  function fetchMoreListItems() {
+    setTimeout(() => {
+      setCats([...cats, ...data.slice(cats.length, cats.length + 10)]);
+      setLoading(false);
+    }, 500);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!loading) return;
+    fetchMoreListItems();
+  }, [loading]);
 
   return (
     <div className='main'>
@@ -26,6 +53,11 @@ const Home = ({ data }) => {
           );
         })}
       </div>
+      {loading && cats.length < data.length && (
+        <div className='h-12 w-8/12 mx-auto grid justify-items-center py-3'>
+          <p className='animate-pulse font-semibold'>Fetching more data...</p>
+        </div>
+      )}
     </div>
   );
 };
