@@ -24,22 +24,22 @@ const ListCard = ({ data, expand, setExpand }) => {
           <table className='table-fixed w-full'>
             <tbody>
               <tr>
-                <td className='w-32'>Weight</td>
+                <td className='w-32 font-semibold'>Weight</td>
                 <td className='w-2'>:</td>
                 <td>{data?.weight?.metric} kg</td>
               </tr>
               <tr>
-                <td className='w-32'>Life Span</td>
+                <td className='w-32 font-semibold'>Life Span</td>
                 <td className='w-2'>:</td>
                 <td>{data?.life_span} years</td>
               </tr>
               <tr>
-                <td className='w-32'>Temperament</td>
+                <td className='w-32 font-semibold'>Temperament</td>
                 <td className='w-2'>:</td>
                 <td>{data?.temperament}</td>
               </tr>
               <tr>
-                <td className='w-32'>Origin</td>
+                <td className='w-32 font-semibold'>Origin</td>
                 <td className='w-2'>:</td>
                 <td>{data?.origin}</td>
               </tr>
@@ -51,10 +51,15 @@ const ListCard = ({ data, expand, setExpand }) => {
                 </tr>
               )}
               <tr>
-                <td className='w-32'>Wikipedia URL</td>
+                <td className='w-32 font-semibold'>Wikipedia URL</td>
                 <td className='w-2'>:</td>
                 <td>
-                  <a href={data?.wikipedia_url}>{data?.name} Cat</a>
+                  <a
+                    className='text-orange-700 rounded px-2 hover:bg-orange-200'
+                    href={data?.wikipedia_url}
+                  >
+                    {data?.name} Cat
+                  </a>
                 </td>
               </tr>
             </tbody>
