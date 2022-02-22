@@ -1,13 +1,15 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { createRef, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchField from '../components/SearchField';
 const ListCard = dynamic(() => import('../components/ListCard'));
 
 const Home = ({ data }) => {
-  const [cats, setCats] = useState(data.slice(0, 10));
+  const [cats, setCats] = useState([...data.slice(0, 10)]);
+  const [result, setResult] = useState([...data]);
   const [expand, setExpand] = useState();
   const [loading, setLoading] = useState(false);
+  const [keyword, setKeyword] = useState('');
 
   function handleScroll() {
     if (
@@ -32,8 +34,22 @@ const Home = ({ data }) => {
 
   useEffect(() => {
     if (!loading) return;
-    fetchMoreListItems();
+    if (keyword.length == 0) {
+      fetchMoreListItems();
+    }
   }, [loading]);
+
+  useEffect(() => {
+    if (keyword.length > 0) {
+      const found = data.filter((cat) => {
+        const tempName = cat.name.toLowerCase();
+        if (tempName.indexOf(keyword.toLowerCase()) > -1) {
+          return cat;
+        }
+      });
+      setResult([...found]);
+    }
+  }, [keyword]);
 
   return (
     <div className='main relative'>
@@ -43,10 +59,10 @@ const Home = ({ data }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='w-8/12 mx-auto py-4 bg-transparent'>
-        <SearchField />
+        <SearchField keyword={keyword} setKeyword={setKeyword} />
       </div>
       <div className='min-h-screen w-8/12 mx-auto break-words'>
-        {cats.map((cat) => {
+        {(keyword.length > 0 ? result : cats).map((cat) => {
           return (
             <ListCard
               key={cat.id}
@@ -57,7 +73,7 @@ const Home = ({ data }) => {
           );
         })}
       </div>
-      {loading && cats.length < data.length && (
+      {loading && cats.length < data.length && keyword.length == 0 && (
         <div className='h-12 w-8/12 mx-auto grid justify-items-center py-3'>
           <p className='animate-pulse font-semibold'>Fetching more data...</p>
         </div>
