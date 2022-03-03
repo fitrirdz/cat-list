@@ -12,7 +12,7 @@ const OtherSources = ({ cfa, vetstreet, vca }) => {
             className='text-orange-700 rounded px-2 hover:bg-orange-200'
             href={cfa}
           >
-            The Cat Fanciers' Association
+            The Cat Fanciers&lsquo; Association
           </a>
         )}
         {vetstreet && (
