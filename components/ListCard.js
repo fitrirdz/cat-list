@@ -91,6 +91,8 @@ const ListCard = ({ data, expand, setExpand }) => {
                   <a
                     className="text-orange-700 rounded px-2 hover:bg-orange-200"
                     href={data?.wikipedia_url}
+                    target="_blank"
+                    rel="noreferrer noopener"
                   >
                     {data?.name} Cat
                   </a>
