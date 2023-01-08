@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Loading from "../components/Loading";
 import SearchField from "../components/SearchField";
 const ListCard = dynamic(() => import("../components/ListCard"));
 
@@ -75,6 +76,7 @@ const Home = ({ data }) => {
       </div>
       {loading && cats.length < data.length && keyword.length == 0 && (
         <div className="h-12 w-8/12 mx-auto grid justify-items-center py-3">
+          <Loading />
           <p className="animate-pulse font-semibold">Fetching more data...</p>
         </div>
       )}
