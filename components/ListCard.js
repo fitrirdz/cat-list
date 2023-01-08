@@ -43,7 +43,9 @@ const ListCard = ({ data, expand, setExpand }) => {
       <div className="grid grid-cols-12">
         <div
           className="col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('${imageUrl}')` }}
+          style={{
+            backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_RESIZE_API}/?imageUrl=${imageUrl}&width=350&height=350')`,
+          }}
         >
           {data?.reference_image_id == undefined && (
             <h3 className="w-full h-full grid place-items-center text-gray-200 text-lg">
