@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import OtherSources from "./OtherSources";
@@ -27,7 +28,11 @@ const ListCard = ({ data, expand, setExpand }) => {
               return res.json();
             }
           })
-          .then((data) => setImageUrl(data?.url));
+          .then((data) =>
+            setImageUrl(
+              `${process.env.NEXT_PUBLIC_IMAGE_RESIZE_API}/?imageUrl=${data?.url}&width=350&height=350`
+            )
+          );
       } catch (err) {
         console.error(err);
       }
@@ -42,11 +47,20 @@ const ListCard = ({ data, expand, setExpand }) => {
     <div className="h-full w-full shadow-lg mb-2">
       <div className="grid grid-cols-12">
         <div
-          className="col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('${process.env.NEXT_PUBLIC_IMAGE_RESIZE_API}/?imageUrl=${imageUrl}&width=350&height=350')`,
-          }}
+          // className="col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat rounded-full"
+          // style={{
+          //   backgroundImage: `url('${imageUrl}')`,
+          // }}
+          className="col-span-4 h-72 bg-orange-900 text-gray-200"
         >
+          {imageUrl && (
+            <img
+              className="object-cover h-72 w-full"
+              alt={data?.name}
+              src={imageUrl}
+              loading="lazy"
+            />
+          )}
           {data?.reference_image_id == undefined && (
             <h3 className="w-full h-full grid place-items-center text-gray-200 text-lg">
               No Images Available
