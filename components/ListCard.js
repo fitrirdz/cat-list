@@ -51,7 +51,7 @@ const ListCard = ({ data, expand, setExpand }) => {
           // style={{
           //   backgroundImage: `url('${imageUrl}')`,
           // }}
-          className="col-span-4 h-72 bg-orange-900 text-gray-200"
+          className="col-span-4 h-72 bg-third text-gray-200"
         >
           {imageUrl && (
             <img

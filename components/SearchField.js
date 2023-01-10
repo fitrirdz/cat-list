@@ -15,11 +15,11 @@ const SearchField = ({ keyword, setKeyword }) => {
           onChange={(e) => setTempKeyword(e.target.value)}
         />
         <button
-          className="h-12 w-28 secondary-button outline-none text-black font-semibold"
+          className="h-12 w-28 bg-second rounded-lg outline-none text-black font-semibold"
           style={{ borderRadius: "none" }}
           onClick={() => setKeyword(tempKeyword)}
         >
-          Search
+          SEARCH
         </button>
       </div>
     </div>
