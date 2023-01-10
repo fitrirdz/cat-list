@@ -47,11 +47,10 @@ const ListCard = ({ data, expand, setExpand }) => {
     <div id="list-card" className="h-full w-full shadow-lg mb-2">
       <div className="grid grid-cols-12">
         <div
-          // className="col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat rounded-full"
-          // style={{
-          //   backgroundImage: `url('${imageUrl}')`,
-          // }}
-          className="col-span-4 h-72 bg-third text-gray-200"
+          className="col-span-4 h-72 bg-third text-gray-200 bg-50% bg-right-bottom bg-no-repeat"
+          style={{
+            backgroundImage: `url('./huh-looking.gif')`,
+          }}
         >
           {imageUrl && (
             <img
@@ -62,7 +61,7 @@ const ListCard = ({ data, expand, setExpand }) => {
             />
           )}
           {data?.reference_image_id == undefined && (
-            <h3 className="w-full h-full grid place-items-center text-gray-200 text-lg">
+            <h3 className="w-full h-full grid content-center text-gray-200 text-lg pl-8">
               No Images Available
             </h3>
           )}
@@ -72,34 +71,34 @@ const ListCard = ({ data, expand, setExpand }) => {
           <table className="table-fixed w-full">
             <tbody>
               <tr>
-                <td className="w-32 font-semibold">Weight</td>
+                <td className="w-36 font-semibold">Weight</td>
                 <td className="w-2">:</td>
                 <td>{data?.weight?.metric} kg</td>
               </tr>
               <tr>
-                <td className="w-32 font-semibold">Life Span</td>
+                <td className="w-36 font-semibold">Life Span</td>
                 <td className="w-2">:</td>
                 <td>{data?.life_span} years</td>
               </tr>
               <tr>
-                <td className="w-32 font-semibold">Temperament</td>
+                <td className="w-36 font-semibold">Temperament</td>
                 <td className="w-2">:</td>
                 <td>{data?.temperament}</td>
               </tr>
               <tr>
-                <td className="w-32 font-semibold">Origin</td>
+                <td className="w-36 font-semibold">Origin</td>
                 <td className="w-2">:</td>
                 <td>{data?.origin}</td>
               </tr>
               {data?.alt_names?.length > 1 && (
                 <tr>
-                  <td>Alternative Name</td>
+                  <td className="w-36 font-semibold">Alternative Name</td>
                   <td className="w-2">:</td>
                   <td>{data?.alt_names}</td>
                 </tr>
               )}
               <tr>
-                <td className="w-32 font-semibold">Wikipedia URL</td>
+                <td className="w-36 font-semibold">Wikipedia URL</td>
                 <td className="w-2">:</td>
                 <td>
                   <a
@@ -123,7 +122,7 @@ const ListCard = ({ data, expand, setExpand }) => {
           </div>
         </div>
       </div>
-      {/* {expand == data?.id && ( */}
+
       <div
         id="detail"
         className={`grid grid-cols-12 bg-white ${
@@ -146,7 +145,6 @@ const ListCard = ({ data, expand, setExpand }) => {
           </div>
         )}
       </div>
-      {/* )} */}
     </div>
   );
 };
