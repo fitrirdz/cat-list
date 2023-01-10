@@ -68,7 +68,7 @@ const ListCard = ({ data, expand, setExpand }) => {
           )}
         </div>
         <div className="col-span-8 grid content-center gap-2 bg-white px-4">
-          <h2 className="text-xl font-bold text-center">{data?.name}</h2>
+          <h2 className="text-center title">{data?.name}</h2>
           <table className="table-fixed w-full">
             <tbody>
               <tr>
