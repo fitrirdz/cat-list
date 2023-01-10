@@ -63,7 +63,7 @@ const Home = ({ data }) => {
 
       <Navbar keyword={keyword} setKeyword={setKeyword} />
 
-      <div className="min-h-screen w-8/12 mt-32 mx-auto break-words">
+      <div className="h-full w-8/12 pt-32 mx-auto break-words">
         {(keyword.length > 0 ? result : cats).map((cat) => {
           return (
             <ListCard
@@ -75,6 +75,12 @@ const Home = ({ data }) => {
           );
         })}
       </div>
+      {keyword.length > 0 && result.length === 0 && (
+        <div className="h-12 w-8/12 mx-auto flex flex-col items-center py-3">
+          <img src="./not-found.webp" height={300} width={300} />
+          <p className="text-lg">Data not found. Please try another keyword</p>
+        </div>
+      )}
       {loading && cats.length < data.length && keyword.length == 0 && (
         <div className="h-12 w-8/12 mx-auto grid justify-items-center py-3">
           <Loading />
