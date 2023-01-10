@@ -9,7 +9,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size:12px;
-    background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+    background: #F9E4D4 ;
+    /* url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; */
 	-webkit-animation: 10s linear 0s normal none infinite animate;
 	-moz-animation: 10s linear 0s normal none infinite animate;
 	-ms-animation: 10s linear 0s normal none infinite animate;
@@ -33,7 +34,7 @@ a {
 }
 
 .primary-button {
-  background-color: #3d2001;
+  background-color: #470D21;
   color: white;
   outline: none;
   padding: 4px 8px;
@@ -41,13 +42,13 @@ a {
 }
 
 .primary-button:hover {
-  background-color: wheat;
-  color: #3d2001;
+  background-color: #D67D3E;
+  color: white;
   font-weight: 700;
 }
 
 .secondary-button {
-  background-color: #3d2001;
+  background-color: #470D21;
   color: white;
   outline: none;
   padding: 4px 8px;
@@ -55,8 +56,8 @@ a {
 }
 
 .secondary-button:hover {
-  background-color: wheat;
-  color: #3d2001;
+  background-color: #D67D3E;
+  color: white;
   font-weight: 700;
 }
 
@@ -80,7 +81,7 @@ a {
 .loader .face:nth-child(1) {
   width: 100%;
   height: 100%;
-  color: orange;
+  color: #85586F;
   border-color: currentColor transparent transparent currentColor;
   border-width: 0.2em 0.2em 0em 0em;
   --deg: -45deg;
@@ -90,7 +91,7 @@ a {
 .loader .face:nth-child(2) {
   width: 70%;
   height: 70%;
-  color: white;
+  color: #D0B8A8;
   border-color: currentColor currentColor transparent transparent;
   border-width: 0.2em 0em 0em 0.2em;
   --deg: -135deg;
