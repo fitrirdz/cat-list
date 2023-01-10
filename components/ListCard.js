@@ -44,7 +44,7 @@ const ListCard = ({ data, expand, setExpand }) => {
   }, []);
 
   return (
-    <div className="h-full w-full shadow-lg mb-2">
+    <div id="list-card" className="h-full w-full shadow-lg mb-2">
       <div className="grid grid-cols-12">
         <div
           // className="col-span-4 h-72 bg-orange-900 bg-cover bg-center bg-no-repeat rounded-full"
@@ -123,25 +123,30 @@ const ListCard = ({ data, expand, setExpand }) => {
           </div>
         </div>
       </div>
-      {expand == data?.id && (
-        <div className="grid grid-cols-12 bg-white">
-          <div className="col-span-12">
-            <DescriptionBox data={data?.description} />
-          </div>
-          <div className="col-span-12">
-            <Statistics data={data} />
-          </div>
-          {(data?.cfa_url || data?.vetstreet_url || data?.vcahospitals_url) && (
-            <div className="col-span-12">
-              <OtherSources
-                cfa={data?.cfa_url}
-                vetstreet={data?.vetstreet_url}
-                vca={data?.vcahospitals_url}
-              />
-            </div>
-          )}
+      {/* {expand == data?.id && ( */}
+      <div
+        id="detail"
+        className={`grid grid-cols-12 bg-white ${
+          expand == data?.id ? "isExpanded" : ""
+        }`}
+      >
+        <div className="col-span-12">
+          <DescriptionBox data={data?.description} />
         </div>
-      )}
+        <div className="col-span-12">
+          <Statistics data={data} />
+        </div>
+        {(data?.cfa_url || data?.vetstreet_url || data?.vcahospitals_url) && (
+          <div className="col-span-12">
+            <OtherSources
+              cfa={data?.cfa_url}
+              vetstreet={data?.vetstreet_url}
+              vca={data?.vcahospitals_url}
+            />
+          </div>
+        )}
+      </div>
+      {/* )} */}
     </div>
   );
 };

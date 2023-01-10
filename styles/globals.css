@@ -49,6 +49,18 @@ button:active {
   font-size: 1.5rem;
 }
 
+
+#list-card #detail {
+  max-height: 0;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+
+#list-card #detail.isExpanded {
+  max-height: 64rem;
+  transition: max-height 0.5s ease-in;
+}
+
 .primary-button {
   background-color: #470D21;
   color: white;
