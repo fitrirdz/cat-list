@@ -30,7 +30,7 @@ const SearchField = ({ keyword, setKeyword }) => {
         <button
           id="submit"
           type="submit"
-          className="h-12 w-28 bg-second rounded-lg outline-none text-black font-semibold"
+          className="h-12 w-28 bg-second rounded-lg outline-none text-black font-semibold hover:bg-first"
           style={{ borderRadius: "none" }}
           onClick={() => setKeyword(tempKeyword)}
         >

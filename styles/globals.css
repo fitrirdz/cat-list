@@ -28,6 +28,10 @@ a {
   box-sizing: border-box;
 }
 
+button:active {
+  transform: translateY(0.25rem);
+}
+
 .main {
   /* background-color: #e0b98b; */
   min-height: 100vh;
